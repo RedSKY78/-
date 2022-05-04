@@ -1,0 +1,24 @@
+package oleg;
+
+import java.util.Scanner;
+
+public class first_app 
+{	
+	public static void main(String[] args)
+	{
+		for (int buk=0;buk<=10;buk++)
+		{
+			for (int cow=0;cow<=20;cow++)
+			{
+				for (int tel=0;tel<=200;tel++)
+				{
+					if ( buk*10+cow*5+tel*0.5==100 && buk+cow+tel==100 )
+					{
+						System.out.println("деньги потрачены!");
+						System.out.println("куплено "+buk+" быков "+cow+" коров "+tel+" телят ");
+					}
+				}
+			}
+		}
+	}
+}
