@@ -1,0 +1,54 @@
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
+
+public class Table_Massiv {
+	
+	{
+	
+		String[] Заголовки = {"name",  "surname", "number"};
+		Object[][] Данные = 
+			{
+				{"Оля","Попова","02547823"},
+				{"Денис","Попов","02547823"},
+				{"Дима","Попова","02547823"},
+				{"Сережа","Попова","02547823"},
+				{"Оля","Попова","02547823"},
+			};
+	
+		JTable Таблица = new JTable(Данные, Заголовки); //создаём таблицу и присваем ей массивы- заголовки и данные
+	
+		JFrame Форма = new JFrame("отображение таблиц"); //создаём форму с названием
+		Форма.getContentPane().setLayout(new FlowLayout());
+        //Устанавливаем размер окна
+		Форма.setSize(300, 170);
+        //Устанавливаем завершение программы при закрытии окна
+		Форма.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+        //Создаем панель прокрутки и включаем в ее состав нашу таблицу
+        JScrollPane jscrlp = new JScrollPane(Таблица);
+        //Устаналиваем размеры прокручиваемой области
+        Таблица.setPreferredScrollableViewportSize(new Dimension(250, 100));
+        //Добавляем в контейнер нашу панель прокрути и таблицу вместе с ней
+        Форма.getContentPane().add(jscrlp);
+        //Отображаем контейнер
+		Форма.setVisible(true);
+	
+	}
+
+	public static void main(String[] args) 
+	{
+		SwingUtilities.invokeLater(new Runnable() 
+			{
+				@Override
+				public void run() 
+				{
+					new Table_Massiv();
+				}
+			});
+	}
+
+}
